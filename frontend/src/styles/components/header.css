@@ -1,0 +1,66 @@
+@layer components {
+  .header {
+    @apply bg-white shadow-md sticky top-0 z-50;
+  }
+
+  .header-container {
+    @apply container mx-auto px-4 py-4;
+  }
+
+  .header-nav {
+    @apply flex justify-between items-center;
+  }
+
+  .header-logo {
+    @apply flex items-center;
+  }
+
+  .header-logo-text {
+    @apply text-2xl font-heading font-bold text-primary;
+  }
+
+  .header-menu {
+    @apply hidden md:flex items-center space-x-8;
+  }
+
+  .header-menu-item {
+    @apply text-gray-600 hover:text-primary transition-colors duration-200;
+  }
+
+  .header-auth {
+    @apply hidden md:flex items-center space-x-4;
+  }
+
+  .header-profile {
+    @apply flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors duration-200;
+  }
+
+  .header-mobile-button {
+    @apply md:hidden text-gray-600 hover:text-primary transition-colors duration-200;
+  }
+
+  .header-mobile-menu {
+    @apply md:hidden mt-4 pb-4;
+  }
+
+  .header-mobile-menu-items {
+    @apply flex flex-col space-y-4;
+  }
+
+  /* Animation for mobile menu */
+  .mobile-menu-enter {
+    @apply transform -translate-y-4 opacity-0;
+  }
+
+  .mobile-menu-enter-active {
+    @apply transform translate-y-0 opacity-100 transition-all duration-200;
+  }
+
+  .mobile-menu-exit {
+    @apply transform translate-y-0 opacity-100;
+  }
+
+  .mobile-menu-exit-active {
+    @apply transform -translate-y-4 opacity-0 transition-all duration-200;
+  }
+}

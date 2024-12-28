@@ -1,0 +1,122 @@
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Custom cursor container */
+.cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  mix-blend-mode: normal;
+}
+
+/* Main cursor dot */
+.cursor-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #B8860B;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+/* Cursor outline with glow effect */
+.cursor-outline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 2px solid #B8860B;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+  animation: cursor-glow 2s infinite;
+}
+
+/* Glow animation */
+@keyframes cursor-glow {
+  0% {
+    box-shadow: 0 0 5px #B8860B,
+                0 0 10px #B8860B,
+                0 0 15px #B8860B;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 10px #B8860B,
+                0 0 20px #B8860B,
+                0 0 30px #B8860B;
+    opacity: 0.8;
+  }
+  100% {
+    box-shadow: 0 0 5px #B8860B,
+                0 0 10px #B8860B,
+                0 0 15px #B8860B;
+    opacity: 1;
+  }
+}
+
+/* Pointer state */
+.cursor.cursor-pointer .cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #DAA520;
+}
+
+.cursor.cursor-pointer .cursor-outline {
+  width: 40px;
+  height: 40px;
+  border-color: #DAA520;
+  animation: cursor-glow-pointer 2s infinite;
+}
+
+@keyframes cursor-glow-pointer {
+  0% {
+    box-shadow: 0 0 5px #DAA520,
+                0 0 10px #DAA520,
+                0 0 15px #DAA520;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 10px #DAA520,
+                0 0 20px #DAA520,
+                0 0 30px #DAA520;
+    opacity: 0.8;
+  }
+  100% {
+    box-shadow: 0 0 5px #DAA520,
+                0 0 10px #DAA520,
+                0 0 15px #DAA520;
+    opacity: 1;
+  }
+}
+
+/* Hidden state */
+.cursor.cursor-hidden {
+  opacity: 0;
+}
+
+/* Input cursor styles */
+input, textarea {
+  caret-color: #B8860B !important;
+}
+
+/* Text selection styles */
+::selection {
+  background-color: rgba(184, 134, 11, 0.2);
+  color: #B8860B;
+}
+
+::-moz-selection {
+  background-color: rgba(184, 134, 11, 0.2);
+  color: #B8860B;
+}

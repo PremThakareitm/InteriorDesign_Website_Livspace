@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-luxury-gold: #D4AF37;
+    --color-luxury-gold-hover: #E5BE3D;
+    --color-luxury-gold-dark: #C9A431;
+    --color-luxury-text: #1A1A1A;
+    --color-surface: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    @apply bg-surface;
+  }
+
+  body {
+    @apply text-luxury-text antialiased;
+    background-image: 
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+      url('/images/texture.png');
+    background-attachment: fixed;
+  }
+
+  /* Global Link Styles */
+  a {
+    @apply text-luxury-gold transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply text-luxury-gold-hover;
+  }
+
+  /* Override link styles for buttons */
+  a.btn-luxury-gold,
+  a.btn-luxury-outline,
+  button.btn-luxury-gold,
+  button.btn-luxury-outline {
+    text-decoration: none !important;
+    background-image: none !important;
+  }
+
+  /* Premium Headings */
+  h1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-luxury-gold to-luxury-bronze bg-clip-text text-transparent;
+  }
+
+  .luxury-shadow {
+    @apply drop-shadow-lg shadow-luxury-gold/20;
+  }
+
+  .luxury-button {
+    @apply px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg;
+  }
+
+  .luxury-button-primary {
+    @apply luxury-button bg-luxury-gold text-white hover:bg-luxury-gold/90;
+  }
+
+  .luxury-button-secondary {
+    @apply luxury-button bg-white text-gray-900 hover:bg-gray-100;
+  }
+}
+
+@layer components {
+  /* Premium Container */
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  /* Enhanced Animations */
+  .page-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Premium Backdrop */
+  .backdrop-luxury {
+    @apply bg-surface/95 backdrop-blur-sm border-b border-luxury-gold/10;
+  }
+
+  /* Premium Gold Button */
+  .btn-luxury-gold {
+    @apply relative inline-flex items-center justify-center
+           px-6 py-3 text-base font-semibold text-white
+           transition-all duration-300 ease-out;
+    background: linear-gradient(
+      135deg,
+      #D4AF37 0%,
+      #E5BE3D 50%,
+      #D4AF37 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                0 0 10px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Force white text on all states */
+  .btn-luxury-gold,
+  .btn-luxury-gold:hover,
+  .btn-luxury-gold:focus,
+  .btn-luxury-gold:active,
+  a.btn-luxury-gold,
+  a.btn-luxury-gold:hover,
+  a.btn-luxury-gold:focus,
+  a.btn-luxury-gold:active {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .btn-luxury-gold:hover {
+    background: linear-gradient(
+      135deg,
+      #E5BE3D 0%,
+      #F3CC45 50%,
+      #E5BE3D 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
+                0 0 15px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-luxury-gold:active {
+    background: linear-gradient(
+      135deg,
+      #C9A431 0%,
+      #D4AF37 50%,
+      #C9A431 100%
+    );
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                0 0 5px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-luxury-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Secondary Luxury Button */
+  .btn-luxury-outline {
+    @apply relative inline-flex items-center justify-center
+           px-6 py-3 text-base font-medium border-2
+           transition-all duration-300 ease-out;
+    background-color: transparent;
+    border-color: var(--color-luxury-gold);
+    color: var(--color-luxury-gold);
+  }
+
+  .btn-luxury-outline:hover {
+    border-color: var(--color-luxury-gold-hover);
+    color: var(--color-luxury-gold-hover);
+    background-color: rgba(212, 175, 55, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+  }
+
+  /* Button Sizes */
+  .btn-luxury-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-luxury-md {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-luxury-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  /* Button Shapes */
+  .btn-luxury-rounded {
+    @apply rounded-full;
+  }
+
+  .btn-luxury-rounded-md {
+    @apply rounded-lg;
+  }
+
+  /* Premium Cards */
+  .card-luxury {
+    @apply bg-white rounded-xl p-6 shadow-lg
+           border border-opacity-10 transition-all duration-300;
+    border-color: var(--color-luxury-gold);
+  }
+
+  .card-luxury:hover {
+    @apply shadow-xl transform -translate-y-1;
+    border-color: var(--color-luxury-gold-hover);
+  }
+
+  /* Premium Headings */
+  .heading-luxury {
+    @apply text-luxury-text font-bold;
+  }
+
+  .heading-luxury-gold {
+    @apply text-luxury-gold font-bold;
+  }
+
+  /* Premium Gradients */
+  .gradient-luxury {
+    background: linear-gradient(135deg, 
+      var(--color-luxury-gold) 0%,
+      var(--color-luxury-gold-hover) 100%
+    );
+  }
+
+  /* Premium Shadows */
+  .shadow-luxury {
+    box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.1),
+                0 2px 4px -1px rgba(212, 175, 55, 0.06);
+  }
+
+  .shadow-luxury-hover {
+    box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.2),
+                0 4px 6px -2px rgba(212, 175, 55, 0.1);
+  }
+
+  /* Refined Scrollbar */
+  .scrollbar-luxury::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    background-color: rgba(212, 175, 55, 0.5);
+    @apply rounded-full;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-luxury-gold);
+    @apply transition-colors duration-300;
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80 border border-luxury-gold/10;
+    box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.08);
+  }
+
+  /* Premium Input Fields */
+  .input-luxury {
+    @apply w-full px-4 py-2 rounded-lg border-2 border-luxury-gold/20 
+           focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold 
+           bg-white/80 backdrop-blur-sm transition-all duration-300;
+  }
+
+  /* Navbar Specific Styles */
+  .shadow-glow {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+  }
+
+  /* Enhanced Backdrop Blur */
+  .backdrop-blur-custom {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Remove link underline for navigation */
+  .no-underline:hover {
+    background-size: 0 0;
+  }
+
+  /* Navigation Links */
+  .nav-link {
+    @apply text-gray-600 hover:text-luxury-gold transition-colors font-medium;
+  }
+
+  .nav-link.active {
+    @apply text-luxury-gold;
+  }
+
+  /* Luxury Theme Colors */
+  :root {
+    --luxury-gold: #B8860B;
+    --luxury-gold-light: #DAA520;
+    --luxury-gold-dark: #8B6914;
+  }
+
+  /* Luxury Buttons */
+  .btn-luxury-gold {
+    @apply bg-luxury-gold text-white font-semibold transition-all duration-200;
+  }
+
+  .btn-luxury-outline {
+    @apply border-2 border-luxury-gold text-luxury-gold font-semibold px-4 py-2 rounded-lg hover:bg-luxury-gold hover:text-white transition-all duration-200;
+  }
+
+  .btn-luxury-lg {
+    @apply px-6 py-3 text-lg;
+  }
+
+  .btn-luxury-md {
+    @apply px-4 py-2 text-base;
+  }
+
+  .btn-luxury-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-luxury-rounded-lg {
+    @apply rounded-lg;
+  }
+
+  /* Visualizer Page Specific Styles */
+  .visualizer-control-panel {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden;
+    backdrop-filter: blur(8px);
+  }
+
+  .visualizer-button {
+    @apply w-full flex items-center p-3 rounded-lg transition-all;
+  }
+
+  .visualizer-button:hover {
+    @apply bg-gray-50 transform scale-102;
+  }
+
+  .visualizer-button.active {
+    @apply bg-luxury-gold text-white;
+  }
+
+  .visualizer-icon-container {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-luxury-gold/10 text-luxury-gold mr-3;
+  }
+
+  /* Color Picker Styles */
+  .react-colorful {
+    @apply w-full max-w-xs;
+  }
+
+  .react-colorful__saturation {
+    @apply rounded-lg mb-4;
+  }
+
+  .react-colorful__hue {
+    @apply rounded-lg;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out;
+  }
+}
+
+/* Focus States */
+.focus-visible {
+  @apply ring-2 ring-luxury-gold/50 ring-offset-2 ring-offset-surface;
+}
+
+/* Loading States */
+.loading-skeleton {
+  @apply animate-pulse bg-gray-200 rounded-lg;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: rgba(212, 175, 55, 0.2);
+  @apply text-luxury-text;
+}
